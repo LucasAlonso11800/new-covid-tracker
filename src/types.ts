@@ -1,20 +1,8 @@
-import axios from "axios";
-
-export const getHistoricData = async () => {
-    const response: APIResponse<Response[]> = await (await axios.get('https://api.covidtracking.com/v2/us/daily.json')).data;
-    return response.data
-};
-
-export const getDailyData = async (date: string) => {
-    const response: APIResponse<Response> = await (await axios.get(`https://api.covidtracking.com/v2/us/daily/${date}.json`)).data;
-    return response.data
-};
-
-type APIResponse<T> = {
+export type APIResponse<T> = {
     data: T
 };
 
-type Response = {
+export type Response = {
     date: string
     states: number
     cases: {
