@@ -27,19 +27,19 @@ export type Response = {
     }
 }
 
-type Calculated = {
+export type Calculated = {
     population_percent: number
     change_from_prior_day: number
     seven_day_change_percent: number
 };
-type CalculatedWithAVG = {
+export type CalculatedWithAVG = {
     population_percent: number
     change_from_prior_day: number
     seven_day_change_percent: number
     seven_day_average: number
 };
 
-type Cases<T> = {
+export type Cases<T> = {
     value: number
     calculated: T
 }

@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
+// Styles
 import './App.scss';
+// Components
+import { CardsContainer, Layout } from './components';
+// Redux
 import { useSelector } from 'react-redux';
 import { RootState, useAppDispatch } from './state/store';
 import { getHistoricData } from './state/features/historicData/historicDataSlice';
@@ -13,18 +17,21 @@ export default function App() {
     useEffect(() => {
         dispatch(getHistoricData())
         dispatch(getDailyData('2021-01-02'))
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
-      console.log('historic', historicData.loading, historicData.data, historicData.error)
+        console.log('historic', historicData.loading, historicData.data, historicData.error)
     }, [historicData]);
 
     useEffect(() => {
-      console.log('daily', dailyData.loading, dailyData.data, dailyData.error)
+        console.log('daily', dailyData.loading, dailyData.data, dailyData.error)
     }, [dailyData])
-    
+
     return (
-        <main>
-        </main>
+        <Layout type="historicData">
+            <main>
+                <CardsContainer type='historicData'/>
+            </main>
+        </Layout>
     );
 }

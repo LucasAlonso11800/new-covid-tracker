@@ -1,0 +1,115 @@
+section#cards-container {
+    width: 100%;
+    border-radius: 20px;
+    background-color: #FFF;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2em 0;
+
+    div.card {
+        width: 25%;
+        padding: 0 2em;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: auto auto auto;
+        row-gap: 1em;
+        column-gap: 1em;
+        align-items: center;
+        border-right: 2px solid $gray;
+
+        &:last-of-type {
+            border: none;
+        }
+
+        div.image-container {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+            padding: 25%;
+
+            &.cases {
+                background-color: $light-blue;
+            }
+            &.tests {
+                background-color: $light-green;
+            }
+            &.hospitalized {
+                background-color: $orange;
+            }
+            &.deaths {
+                background-color: $pink;
+            }
+        }
+
+        div.total {
+            h4 {
+                color: $gray;
+                font-size: 1.25em;
+                font-weight: 400;
+                margin: 1em 0;
+            }
+    
+            p {
+                font-size: 2em;
+                font-weight: 600;
+            }
+        }
+
+        div.info-row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            grid-row: 3 / 4;
+            grid-column: 1 / 3;
+
+            div {
+                width: 150px;
+                margin-bottom: 1em;
+                h6 {
+                    color: $gray;
+                    font-size: 1em;
+                    margin-bottom: 1em;
+                    font-weight: 400;
+                }
+                p {
+                    font-size: 1.25em;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        @media all and (max-width: $desktop) {
+            width: 50%;
+            &:first-of-type {
+                margin-bottom: 2em;
+            }
+            &:nth-of-type(2){
+                border: none;
+                margin-bottom: 2em;
+            }
+        }
+        @media all and (max-width: $tablet) {
+            font-size: 14px;
+            padding: 1em;
+        }
+        @media all and (max-width: $tablet-sm) {
+            font-size: 16px;
+            width: 100%;
+            border: none;
+            margin-bottom: 1em!important;
+        }
+        @media all and (max-width: $phone-sm) {
+            font-size: 14px;
+        }
+    }
+
+    @media all and (max-width: $tablet) {
+        font-size: 14px;
+        padding: 0em;
+    }
+}
