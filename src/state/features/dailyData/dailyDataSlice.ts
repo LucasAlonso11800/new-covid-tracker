@@ -1,12 +1,17 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { APIResponse, Response } from "../../../types";
 
 export const getDailyData = createAsyncThunk(
     'dailyData/getDailyData',
-    async (date: string) => {
-        const response: APIResponse<Response> = await (await axios.get(`https://api.covidtracking.com/v2/us/daily/${date}.json`)).data;
-        return response.data
+    async (date: string, thunkAPI) => {
+        try {
+            const response: APIResponse<Response> = await (await axios.get(`https://api.covidtracking.com/v2/us/daily/${date}.json`)).data;
+            return response.data
+        }
+        catch (error) {
+            throw thunkAPI.rejectWithValue(JSON.parse(JSON.stringify(error)))
+        }
     }
 );
 
@@ -35,8 +40,9 @@ export const dailyDataSlice = createSlice({
             state.error = null
         })
         builder.addCase(getDailyData.rejected, (state, action) => {
+            const { message } = action.payload as AxiosError 
             state.loading = false;
-            state.error = action.error.message;
+            state.error = message;
         })
         builder.addCase(getDailyData.fulfilled, (state, action) => {
             state.loading = false;
