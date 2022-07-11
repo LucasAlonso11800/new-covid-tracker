@@ -10,7 +10,7 @@ export default function WelcomeModal() {
     const isOpen = useAppSelector(selectWelcomeModal);
 
     return (
-        <div id="welcome-modal" className={isOpen ? 'open' : 'closed'}>
+        <div id="welcome-modal" className={isOpen ? 'open' : 'closed'} data-testid="welcome-modal">
             <div className="modal-content">
                 <p>Welcome to the Covid US Statistics Dashboard built by Lucas Alonso.</p>
                 <p>This web app was built using React, Typescript, SASS and Redux Toolkit.</p>
