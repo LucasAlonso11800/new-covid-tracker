@@ -1,4 +1,6 @@
 import React from 'react';
+// Components
+import { WelcomeModal } from './';
 // Assets
 import { Loading } from '../assets';
 // Redux
@@ -15,6 +17,7 @@ export default function Layout({ children, type }: Props) {
 
     if (data.loading) return (
         <div id="layout">
+            <WelcomeModal />
             <img src={Loading} alt="loading" className='loader' />
             <p>Loading...</p>
         </div>
@@ -22,6 +25,7 @@ export default function Layout({ children, type }: Props) {
 
     return (
         <div id="layout">
+            <WelcomeModal />
             {children}
         </div>
     )
