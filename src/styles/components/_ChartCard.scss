@@ -4,14 +4,69 @@ section.chart-card {
     padding: 2em;
     margin-bottom: 2em;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
 
     canvas {
-        max-width: 70%;
-        margin-right: 2em;
+        max-width: 90%;
+        min-height: 250px;
     }
 
     div.daily-data {
-        width: 30%;
+        width: 10%;
+        padding-left: 2em;
+        padding-top: 2em;
+        h4 {
+            margin-bottom: 1.25em;
+        }
+
+        div {
+            h6 {
+                color: $gray;
+                font-size: 1em;
+                margin-bottom: 0.5em;
+                font-weight: 400;
+            }
+            p {
+                font-size: 1.25em;
+                font-weight: 600;
+                margin-bottom: 1em;
+            }
+        }
+    }
+
+    @media all and (max-width: $desktop) {
+        canvas {
+            max-width: 100%;
+            margin-bottom: 2em;
+            min-height: 0;
+            max-height: 400px;
+        }
+        div.daily-data {
+            width: 100%;
+            padding: 0;
+            div {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 2em;
+                margin-bottom: 1em;
+
+                h6 {
+                    margin: 0;
+                    margin-right: 1em;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: $tablet-sm) {
+        padding: 1em;
+        div.daily-data {
+            flex-wrap: wrap;
+        }
     }
 }

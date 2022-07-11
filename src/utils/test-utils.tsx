@@ -9,7 +9,6 @@ import type { PreloadedState } from '@reduxjs/toolkit'
 import type { RenderOptions } from '@testing-library/react'
 import type { AppStore, RootState } from '../state/store';
 
-import dailyDataReducer from '../state/features/dailyData/dailyDataSlice'
 import historicDataReducer from '../state/features/historicData/historicDataSlice'
 import welcomeModalReducer from '../state/features/welcomeModal/welcomeModalSlice'
 
@@ -29,7 +28,6 @@ export function renderWithProviders(
         store = configureStore({
             reducer: {
                 historicData: historicDataReducer,
-                dailyData: dailyDataReducer,
                 welcomeModal: welcomeModalReducer
             }
             , preloadedState

@@ -44,4 +44,5 @@ export type Cases<T> = {
     calculated: T
 };
 
-export type ResponseKeys = 'cases.total.value' | 'testing.total.value' | 'outcomes.hospitalized.currently.value' | 'outcomes.death.total.value';
+export type ResponseKeys = 
+'cases.total' | 'testing.total' | 'outcomes.hospitalized.currently' | 'outcomes.death.total';

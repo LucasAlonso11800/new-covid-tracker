@@ -1,4 +1,4 @@
-import { Response, ResponseKeys } from "../types";
+import { CalculatedWithAVG, Cases, Response, ResponseKeys } from "../types";
 
 export const generateDatasets = (label: string, data: number[], border: string) => {
     return ({
@@ -12,7 +12,7 @@ export const generateDatasets = (label: string, data: number[], border: string) 
     })
 };
 
-export const getNestedValue = (item: Response, keys: ResponseKeys): number => {
+export const getNestedValue = (item: Response, keys: ResponseKeys): Cases<CalculatedWithAVG> => {
     const value: any = item;
     return keys.split('.').reduce((acc, key) => acc[key], value);      
 };

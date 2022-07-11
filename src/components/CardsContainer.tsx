@@ -1,24 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
-import { RootState } from '../state/store';
+// Redux
+import { selectHistoricData } from '../state/features/historicData/historicDataSlice';
+import { useAppSelector } from '../state/store';
+// Components
 import { Card } from './';
 
-type Props = {
-    type: 'dailyData' | 'historicData'
-};
+export default function CardsContainer() {
+    const { data } = useAppSelector(selectHistoricData);
+    if (!data) return <></>;
 
-export default function CardsContainer({ type }: Props) {
-    const data = useSelector((state: RootState) => state[type]);
-
-    if (!data.data) return <></>;
-
-    const values = Array.isArray(data.data) ? data.data[0] : data.data;
+    const values = data[0];
 
     return (
         <section id="cards-container">
+            <h1>Statistics for 2021/03/07, the last available date</h1>
             <Card
                 title='Cases'
-                values={values.cases.total} 
+                values={values.cases.total}
                 image="ic:baseline-query-stats"
                 imageColor="#54c9f7"
             />

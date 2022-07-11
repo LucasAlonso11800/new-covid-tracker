@@ -2,12 +2,10 @@ import { combineReducers, configureStore, PreloadedState } from '@reduxjs/toolki
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 // Features
 import historicDataReducer from './features/historicData/historicDataSlice';
-import dailyDataReducer from './features/dailyData/dailyDataSlice';
 import welcomeModalReducer from './features/welcomeModal/welcomeModalSlice';
 
 const rootReducer = combineReducers({
     historicData: historicDataReducer,
-    dailyData: dailyDataReducer,
     welcomeModal: welcomeModalReducer
 })
 
