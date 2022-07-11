@@ -49,6 +49,12 @@ main {
         animation: bounceOpacity 1s ease-in-out alternate infinite;
     }
 
+    p.error {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+        animation: none;
+    }
+
     @keyframes rotate {
         0% {
             transform: rotateZ(0deg)

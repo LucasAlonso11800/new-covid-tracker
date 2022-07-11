@@ -39,18 +39,19 @@ export default function App() {
     }, [formik.values.date])
 
 
-
     if (loading) return (
         <main>
-            <WelcomeModal />
+            {/* <WelcomeModal /> */}
             <img src={Loading} alt="loading" className='loader' />
-            <p>Loading...</p>
+            <p className="loading">Loading...</p>
         </main>
     );
 
     if (error) return (
         <main>
-            <p>{error}</p>
+            <WelcomeModal />
+            <p className='error'>There seems to be an error. Please refresh the page.</p>
+            <p className='error'>{error}</p>
         </main>
     );
 
