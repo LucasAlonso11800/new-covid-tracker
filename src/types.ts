@@ -42,4 +42,6 @@ export type CalculatedWithAVG = {
 export type Cases<T> = {
     value: number
     calculated: T
-}
+};
+
+export type ResponseKeys = 'cases.total.value' | 'testing.total.value' | 'outcomes.hospitalized.currently.value' | 'outcomes.death.total.value';

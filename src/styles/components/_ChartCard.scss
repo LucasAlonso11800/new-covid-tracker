@@ -1,0 +1,17 @@
+section.chart-card {
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+
+    canvas {
+        max-width: 70%;
+        margin-right: 2em;
+    }
+
+    div.daily-data {
+        width: 30%;
+    }
+}
