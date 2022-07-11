@@ -7,7 +7,7 @@ import { render } from '@testing-library/react'
 // Types
 import type { PreloadedState } from '@reduxjs/toolkit'
 import type { RenderOptions } from '@testing-library/react'
-import type { AppStore, RootState } from '../state/store';
+import { AppStore, RootState, setupStore } from '../state/store';
 
 import historicDataReducer from '../state/features/historicData/historicDataSlice'
 import welcomeModalReducer from '../state/features/welcomeModal/welcomeModalSlice'
@@ -25,13 +25,7 @@ export function renderWithProviders(
     {
         preloadedState = {},
         // Automatically create a store instance if no store was passed in
-        store = configureStore({
-            reducer: {
-                historicData: historicDataReducer,
-                welcomeModal: welcomeModalReducer
-            }
-            , preloadedState
-        }),
+        store = setupStore(preloadedState),
         ...renderOptions
     }: ExtendedRenderOptions = {}
 ) {

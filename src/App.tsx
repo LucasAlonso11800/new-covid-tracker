@@ -41,7 +41,7 @@ export default function App() {
 
     if (loading) return (
         <main>
-            {/* <WelcomeModal /> */}
+            <WelcomeModal />
             <img src={Loading} alt="loading" className='loader' />
             <p className="loading">Loading...</p>
         </main>
