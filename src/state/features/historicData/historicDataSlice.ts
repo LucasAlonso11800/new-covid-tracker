@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { APIResponse, Response } from "../../../types";
+import { RootState } from "../../store";
 
 export const getHistoricData = createAsyncThunk(
     'historicData/getHistoricData',
@@ -51,5 +52,7 @@ export const historicDataSlice = createSlice({
         })
     },
 });
+
+export const selectHistoricData = (state: RootState) => state.historicData;
 
 export default historicDataSlice.reducer;

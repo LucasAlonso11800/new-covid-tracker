@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { APIResponse, Response } from "../../../types";
+import { RootState } from "../../store";
 
 export const getDailyData = createAsyncThunk(
     'dailyData/getDailyData',
@@ -52,4 +53,5 @@ export const dailyDataSlice = createSlice({
     },
 });
 
+export const selectDailyData = (state: RootState) => state.dailyData;
 export default dailyDataSlice.reducer;

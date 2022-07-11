@@ -4,15 +4,14 @@ import './App.scss';
 // Components
 import { CardsContainer, Layout } from './components';
 // Redux
-import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from './state/store';
-import { getHistoricData } from './state/features/historicData/historicDataSlice';
-import { getDailyData } from './state/features/dailyData/dailyDataSlice';
+import { useAppDispatch, useAppSelector } from './state/store';
+import { getHistoricData, selectHistoricData } from './state/features/historicData/historicDataSlice';
+import { getDailyData, selectDailyData } from './state/features/dailyData/dailyDataSlice';
 
 export default function App() {
     const dispatch = useAppDispatch();
-    const historicData = useSelector((state: RootState) => state.historicData);
-    const dailyData = useSelector((state: RootState) => state.dailyData);
+    const historicData = useAppSelector(selectHistoricData)
+    const dailyData = useAppSelector(selectDailyData)
 
     useEffect(() => {
         dispatch(getHistoricData())
