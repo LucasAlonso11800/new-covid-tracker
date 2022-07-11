@@ -21,7 +21,6 @@ type Props = {
 
 export default function ChartCard({ label, color, title, keys, date }: Props) {
     const { data, loading } = useAppSelector(selectHistoricData);
-
     const reversedArray = useMemo(() => [...data].reverse(), [data]);
     const index = useMemo(() => reversedArray.findIndex((item) => item.date === date), [reversedArray, date]);
 
@@ -33,7 +32,7 @@ export default function ChartCard({ label, color, title, keys, date }: Props) {
         reversedArray.slice(index - 30, index).reduce((acc: number[], item) => [...acc, getNestedValue(item, keys).value], [])
     ), [index, reversedArray, keys]);
 
-    if(loading) return <></>;
+    if (loading) return <></>;
 
     return (
         <section className="chart-card">
@@ -59,7 +58,7 @@ export default function ChartCard({ label, color, title, keys, date }: Props) {
                     skipNull: true,
                 }}
             />
-            <div className="daily-data">
+            <div className="daily-data" data-testid={`chart-${label}`}>
                 <h4>Daily data</h4>
                 <div>
                     <h6>Population %</h6>
@@ -74,10 +73,10 @@ export default function ChartCard({ label, color, title, keys, date }: Props) {
                     <p>{getNestedValue(reversedArray[index], keys).calculated.seven_day_change_percent?.toLocaleString('US')}%</p>
                 </div>
                 {/outcomes/.test(keys) &&
-                <div>
-                    <h6>Weekly average</h6>
-                    <p>{parseInt(((getNestedValue(reversedArray[index], keys).calculated.seven_day_average - getNestedValue(reversedArray[index - 7], keys).calculated.seven_day_average) / 7).toFixed(0)).toLocaleString('US')}</p>
-                </div>
+                    <div>
+                        <h6>Weekly average</h6>
+                        <p>{parseInt(((getNestedValue(reversedArray[index], keys).calculated.seven_day_average - getNestedValue(reversedArray[index - 7], keys).calculated.seven_day_average) / 7).toFixed(0)).toLocaleString('US')}</p>
+                    </div>
                 }
             </div>
         </section>

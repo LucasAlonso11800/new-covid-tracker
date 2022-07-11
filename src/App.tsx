@@ -61,7 +61,14 @@ export default function App() {
             <CardsContainer />
             <div className="input-container">
                 <label htmlFor="date">Select a date:</label>
-                <input type="date" id="date" value={formik.values.date} onChange={formik.handleChange} />
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={date}
+                    onChange={formik.handleChange}
+                    data-testid="input"
+                />
                 <p>{formik.errors.date}</p>
             </div>
             <ChartCard

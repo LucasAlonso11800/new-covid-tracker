@@ -13,6 +13,16 @@ export const generateDatasets = (label: string, data: number[], border: string) 
 };
 
 export const getNestedValue = (item: Response, keys: ResponseKeys): Cases<CalculatedWithAVG> => {
+    if (!item) return {
+        value: 0,
+        calculated: {
+            change_from_prior_day: 0,
+            population_percent: 0,
+            seven_day_average: 0,
+            seven_day_change_percent: 0
+        }
+    };
+    
     const value: any = item;
-    return keys.split('.').reduce((acc, key) => acc[key], value);      
+    return keys.split('.').reduce((acc, key) => acc[key], value);
 };

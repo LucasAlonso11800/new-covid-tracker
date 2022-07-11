@@ -1,5 +1,5 @@
 import { renderWithProviders } from '../../utils/test-utils';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { setupServer } from 'msw/node'
 import { rest } from 'msw';
 import '@testing-library/jest-dom'
